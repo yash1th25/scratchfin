@@ -31,6 +31,18 @@ jobs:
       run: mvn clean install
     - name: Install docker
       uses: docker-practice/actions-setup-docker@master  
-    - name: build application image
-      run: |
-         docker build -t restapi . --platform=linux/arm64
+    - name: Docker Login
+        uses: docker/login-action@v2.1.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ${{ secrets.DOCKER_REGISTRY }}
+    - name: Build and push Docker image
+      uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+      with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: yasharitha123.jfrog.io/docker/restapi-local:${{ github.sha }} 
+          platforms: linux/arm64
+
