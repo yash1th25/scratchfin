@@ -67,13 +67,22 @@ This step is to verify your competency in setting up a development workflow.
 
 Create a local environment that can be used to verify the code. Please keep in mind that a large number of projects are done with various setups (Unix and Windows based), so on any local setup please take into consideration this limitation (i.e. make sure it works across platforms). There is a [CSV](https://gitlab.scratchpay.com/-/snippets/42/raw/main/data.csv) file containing data that should be loaded in order to test your setup. Please think of a creative way to make loading the data easier.
 
+### Process
+
+As per the requirement, I have to create a local environment for testing and it should work on all platforms. Below are the steps performed to achieve it.
+
+I wrote python scripts to load the csv into database, which makes the process of executing the test cases easy.
+
+To work my application on various platform, create a Docker container my using the workflow 
+
+
 ## Task 3: Containerization and Orchestration
 
 This step is to test your understanding of containerization, automation and orchestration.
 
 Please containerize your application and create the required manifests/configuration to deploy your application to a Kubernetes cluster. Please use best practices when setting this up (treat it as if it were going into production). Part of the process should include the automation of loading the data into the storage that you have chosen.
 
-## Process
+### Process
 * Used docker file to containerize the application
 * 
 
