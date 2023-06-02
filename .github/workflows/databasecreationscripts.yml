@@ -29,5 +29,5 @@ jobs:
       - name: copy sql file to helm chart
         run: |
            kubectl  cp python_database_scripts/userdb.sql  $(kubectl get pods -n ${{env.namespace}} -o=name | grep postgres | sed "s/^.\{4\}//"):/ -n ${{env.namespace}}
-           kubectl  exec  -it $(kubectl get pods -n ${{env.namespace}} -o=name | grep postgres | sed "s/^.\{4\}//") bash -n ${{env.namespace}}  -- /bin/bash -c "psql -U postgres --file python_database_scripts/userdb.sql"
+           kubectl  exec  -it $(kubectl get pods -n ${{env.namespace}} -o=name | grep postgres | sed "s/^.\{4\}//") bash -n ${{env.namespace}}  -- /bin/bash -c "psql -U postgres --file userdb.sql"
          
