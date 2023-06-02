@@ -53,5 +53,11 @@ jobs:
       - name: Helm tool installer
         uses: Azure/setup-helm@v3
         
+      - name:  create helm chart
+        run: src/helm package helm
+        
+      - name: Deploy helm chart into AKS
+        run: helm install helm src/helm 
+        
 
      
