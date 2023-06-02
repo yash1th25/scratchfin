@@ -1,11 +1,14 @@
 import csv
 import requests
+import os
+database_url = os.environ.get('DATABASE_URL', 'python_database_scripts/data.csv')
+csvurl = os.environ.get('CSV_URL', 'http://74.64.123.44:8080/v1/users')
 
-with open('python_database_scripts/data.csv') as csv_file:
+with open(database_url) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     myobj = {'somekey': 'somevalue'}
-    url = "http://74.64.123.44:8080/v1/users"
+    url = csvurl
     for row in csv_reader:
         if line_count == 0:
             line_count += 1
