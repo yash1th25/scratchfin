@@ -76,12 +76,12 @@ As per the requirement, I have to create a local environment for testing and it 
 
 
 
-## Manual creation of image
+#### Manual process for creating image
 1. To work my application on various platform, create a Docker container using below command. We can change the platform as per your requirement.
     Manual creation: 
     `docker build -t restapi . --platform=linux/arm64`
                   
-## Automation for creating image
+#### Automation for creating image
 
 2. We can also create the image by using the workflow `.github/workflows/maven.yml` by changing the envirnoment variable platform as per your architecture and OS
    ![application](https://github.com/yash1th25/scratchpay/assets/135289833/0c5d60c2-e87d-42dc-9330-665216cd4c4f)
@@ -89,7 +89,7 @@ As per the requirement, I have to create a local environment for testing and it 
 3. The tag of the image is printed in the console logs of workflow.
    ![tag](https://github.com/yash1th25/scratchpay/assets/135289833/e3a3d319-13f2-4859-ad43-49d250cca8e5)
  
-4. Now pull the image using docker pull yasharitha123.jfrog.io/docker/restapi-local:<image tag> and run it using below command
+4. Now pull the image using `docker pull yasharitha123.jfrog.io/docker/restapi-local:<image tag>` and run it using below command
   
    `docker  container run --name restapi  -e SQL_HOST=<give the ip address of the postgress> -e SQL_DB_NAME=userdb -e SQL_USERNAME=postgres -e SQL_PASSWORD=admin -d -p 8080:8080 yasharitha123.jfrog.io/docker/restapi:<image tag>`
 5. Pull the python image as well using  docker pull yasharitha123.jfrog.io/docker/python-local:<image tag> and run it using below command
