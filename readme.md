@@ -89,7 +89,8 @@ Please containerize your application and create the required manifests/configura
 * To fetch the image from the Jfrog repository, I added a secret.yaml which is under Kubernetes folder.
 * To add the database properties, I created a configmap which has the hostname and database name. (hostname is nothing but postgres service name)
 * In kubernetes folder, there is a secretdb.yaml file which is used to override the database credentials both username and password, so that we are not sharing the sensitive information directly in the deployment files.
-####Below are the commands to manually deploy the application in AKS
+
+#### Below are the commands to manually deploy the application in AKS
 Prerequisties: Make sure Azure kubernetes cluster is installed
   1. To login to the Cluster
 
