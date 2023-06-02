@@ -37,10 +37,7 @@ spec:
                   name: secretdb
                   key: password
             - name: SQL_DB_NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: db-config
-                  key: userdb
+              value: postgresdb-svc
             - name: SQL_HOST
               value: postgresdb-svc
       imagePullSecrets:
