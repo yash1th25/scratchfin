@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: db-config
-binaryData::
+type: Opaque  
+data::
   host: cG9zdGdyZXNkYi1zdmM=
   dbname: dXNlcmRi
