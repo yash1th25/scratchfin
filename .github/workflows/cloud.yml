@@ -31,6 +31,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: yasharitha123.jfrog.io/docker/restapi:${{ github.sha }}
+          platforms: linux/amd64
       - name: Az CLI login
         uses: azure/login@v1
         with:
