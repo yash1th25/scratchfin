@@ -31,11 +31,15 @@ jobs:
       run: mvn clean install
     - name: Install docker
       uses: docker-practice/actions-setup-docker@master  
-    - name: build postgress image
+    - name: pull postgress image
       run: |
          docker pull postgres
-         docker container run -it --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 0.0.0.0:5432:5432 postgres
-         docker exec -it postgresdb psql -U postgres -f userdb.sql
+    - name: build postgress 
+      run: |
+         docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 0.0.0.0:5432:5432 postgres
+    - name: bash into 
+      run: |   
+         winpty docker exec -it postgresdb psql -U postgres -f userdb.sql
     - name: build application image
       run: |
          docker build -t restapi . --platform=linux/arm64
