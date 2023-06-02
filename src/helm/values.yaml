@@ -4,11 +4,7 @@
 
 replicaCount: 1
 
-image:
-  repository: yasharitha123.jfrog.io/docker/demo
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+imagename: yasharitha123.jfrog.io/docker/restapimicro1:0.0.8-SNAPSHOT
 
 restapideployment: "true"
 svc: "true"
