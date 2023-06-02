@@ -1,0 +1,6 @@
+com/scratchpay/restapi/resources/Controller.class
+com/scratchpay/restapi/UserEntity/User.class
+com/scratchpay/restapi/dao/UserDao.class
+com/scratchpay/restapi/constants/DatabaseQueries.class
+com/scratchpay/restapi/RestapiApplication.class
+com/scratchpay/restapi/dao/UserDaoImpl.class

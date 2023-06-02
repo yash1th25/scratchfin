@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+data:
+  host: cG9zdGdyZXNkYi1zdmM=
+  dbname: dXNlcmRi

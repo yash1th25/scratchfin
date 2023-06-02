@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restapi
+  labels:
+    app: restapi
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: restapi
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: restapi
+    spec:
+      containers:
+        - name: restapi
+          image: yasharitha123.jfrog.io/docker/restapimicro1:0.0.8-SNAPSHOT
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: SQL_USERNAME
+              valueFrom:
+               secretKeyRef:
+                 name: secretdb
+                 key: username
+            - name: SQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secretdb
+                  key: password
+            - name: SQL_DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: dbname
+            - name: SQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: host
+      imagePullSecrets:
+        - name: regcred
+
