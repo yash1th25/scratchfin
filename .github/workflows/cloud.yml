@@ -51,13 +51,13 @@ jobs:
          kubectl create -f src/configmap.yaml -n scratchpay
      
       - name: Helm tool installer
+        id: install-helm
         uses: Azure/setup-helm@v3
         
       - name:  create helm chart
-        run: src/helm package helm
-        
-      - name: Deploy helm chart into AKS
-        run: helm install helm src/helm 
-        
+        run: |
+          helm package src/helm
+          helm install helm src/helm
+ 
 
      
