@@ -33,4 +33,7 @@ jobs:
           push: true
           tags: yasharitha123.jfrog.io/docker/restapi-local:${{ github.sha }} 
           platforms: linux/arm64
+    - name: print docker image name
+      run: |
+         echo "yasharitha123.jfrog.io/docker/restapi-local:${{ github.sha }}"
 
