@@ -9,10 +9,7 @@
 name: CI for building image and push to Repo
 
 on: 
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+ [workflow_dispatch]
 
 jobs:
   build:
