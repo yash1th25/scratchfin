@@ -1,7 +1,9 @@
 name: Java CI
 
 on: [push]
-
+env:
+  namespace: test
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,11 +46,15 @@ jobs:
         id: install-kubectl
         uses: azure/setup-kubectl@v3
         
+      - name: create namespace  
+        run: |
+         kubectl create ns ${{namespace}}
+        
       - name: create secret
         run: |
-         kubectl create -f src/secret.yaml -n scratchpay
-         kubectl create -f src/secretdb.yaml -n scratchpay
-         kubectl create -f src/configmap.yaml -n scratchpay
+         kubectl create -f src/secret.yaml -n ${{namespace}}
+         kubectl create -f src/secretdb.yaml -n ${{namespace}}
+         kubectl create -f src/configmap.yaml -n ${{namespace}}
      
       - name: Helm tool installer
         id: install-helm
@@ -57,7 +63,7 @@ jobs:
       - name:  create helm chart
         run: |
           helm package src/helm
-          helm install helm src/helm -n scratchpay
+          helm install helm src/helm -n ${{namespace}}
  
 
      
