@@ -42,6 +42,7 @@ gh repo clone yash1th25/scratchpay
 
 5. To hit the below APIs, you can use something like postman to test.
    POST- http://localhost:8080/v1/users
+   ![alt text] (https://github.com/yash1th25/scratchpay/blob/main/images/postman.jpeg)
 
 ## Step 2: Local Setup
 
