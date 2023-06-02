@@ -49,6 +49,9 @@ jobs:
          kubectl create -f src/secret.yaml -n scratchpay
          kubectl create -f src/secretdb.yaml -n scratchpay
          kubectl create -f src/configmap.yaml -n scratchpay
-         
+     
+      - name: Helm tool installer
+        uses: Azure/setup-helm@v3
+        
 
      
