@@ -39,7 +39,7 @@ jobs:
          docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 0.0.0.0:5432:5432 postgres
     - name: bash into 
       run: |   
-         docker exec -T postgresdb psql -U postgres -f userdb.sql
+         docker exec -t postgresdb psql -U postgres -f userdb.sql
     - name: build application image
       run: |
          docker build -t restapi . --platform=linux/arm64
