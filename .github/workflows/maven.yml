@@ -1,6 +1,6 @@
 name: Buliding application and python image
 
-on: [push]
+on: workflow_dispatch
 env:
  image: yasharitha123.jfrog.io/docker/restapi-local
 jobs:
