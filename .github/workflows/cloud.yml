@@ -48,13 +48,13 @@ jobs:
         
       - name: create namespace  
         run: |
-         kubectl create ns ${{namespace}}
+         kubectl create ns ${{env.namespace}}
         
       - name: create secret
         run: |
-         kubectl create -f src/secret.yaml -n ${{namespace}}
-         kubectl create -f src/secretdb.yaml -n ${{namespace}}
-         kubectl create -f src/configmap.yaml -n ${{namespace}}
+         kubectl create -f src/secret.yaml -n ${{env.namespace}}
+         kubectl create -f src/secretdb.yaml -n ${{env.namespace}}
+         kubectl create -f src/configmap.yaml -n ${{env.namespace}}
      
       - name: Helm tool installer
         id: install-helm
@@ -63,7 +63,7 @@ jobs:
       - name:  create helm chart
         run: |
           helm package src/helm
-          helm install helm src/helm -n ${{namespace}}
+          helm install helm src/helm -n ${{env.namespace}}
  
 
      
