@@ -131,6 +131,7 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   In addition to that, pods and secrets are deployes in the kubernetes cluster.
   
   Now click on databasecreationscripts, which creates the schema into the postgress database.
+  ![databasescripts](https://github.com/yash1th25/scratchpay/assets/135289833/a7dfe91b-8800-468e-8196-d803861e8e8b)
   
   
   
