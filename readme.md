@@ -12,7 +12,7 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
 
 * To run it in your local, you can download it by cloning the directory to your local using git clone
   
-  ```gh repo clone yash1th25/scratchpay```
+  `gh repo clone yash1th25/scratchpay`
 
 * As a pre-req make sure to install and configure a database. Configure the database properties under src/main/resources/application.properties. 
   In my case I took a postgres docker image and deployed it on my environment
@@ -20,11 +20,11 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
   Below are the command to run the docker image and execute the sql scripts to create schemas on postgres
   1. To download the postgres image from dockerhub
      
-     ```docker pull postgres```
+     `docker pull postgres`
       
   2. Run the postgres container as below 
      
-     ```docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 5432:5432 postgres```
+     `docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 5432:5432 postgres`
      
      --name - Assign a name to the container
      
@@ -37,19 +37,19 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
    
   3. Go to the python_database_scripts folder and run the below command to copy the userdb.sql file to the postgres container
      
-     ```docker cp userdb.sql postgresdb:/```
+     `docker cp userdb.sql postgresdb:/`
    
   4. To execute the script in the docker container
      
-     ```docker exec -it postgresdb psql -U postgres -f userdb.sql```
+     `docker exec -it postgresdb psql -U postgres -f userdb.sql`
 
 * To build the code, use the below commands
   
-  ```./mvnw clean install```
+  `./mvnw clean install`
 
 * To run the application
   
-  ```java -jar ./target/restapi-0.0.1-SNAPSHOT.jar```
+  `java -jar ./target/restapi-0.0.1-SNAPSHOT.jar`
 
 * To hit the below APIs, you can use something like postman to test.
 
