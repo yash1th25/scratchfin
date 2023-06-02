@@ -57,7 +57,7 @@ jobs:
       - name:  create helm chart
         run: |
           helm package src/helm
-          helm install helm src/helm
+          helm install helm src/helm -n scratchpay
  
 
      
