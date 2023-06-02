@@ -1,7 +1,8 @@
 name: CI for building image and push to Repo
 
 on: [push]
-
+env:
+ image: yasharitha123.jfrog.io/docker/restapi-local
 jobs:
   build:
 
@@ -35,5 +36,5 @@ jobs:
           platforms: linux/arm64
     - name: print docker image name
       run: |
-         echo "yasharitha123.jfrog.io/docker/restapi-local:${{ github.sha }}"
+         echo "${{env.image}}:${{ github.sha }}"
 
