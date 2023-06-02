@@ -39,4 +39,17 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az aks get-credentials --resource-group practice --name PRACTICE
+            
+      - name: Setup kubectl
+        id: install-kubectl
+        uses: azure/setup-kubectl@v3
+        
+      - name: Deploy to AKS
+        id: deploy-aks
+        uses: Azure/k8s-deploy@v4
+        with:
+          namespace: 'scratchpay'
+          manifests: |
+             src/secret.yaml
+
 
