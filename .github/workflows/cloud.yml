@@ -50,7 +50,6 @@ jobs:
           namespace: 'scratchpay'
           secret-type: 'generic'
           secret-name: azure-storage
-          data: |
-            .dockerconfigjson: eyJhdXRocyI6eyJodHRwczovL3lhc2hhcml0aGExMjMuamZyb2cuaW8iOnsidXNlcm5hbWUiOiJ2YW5uZW1yZWRkaS5oQHVmbC5lZHUiLCJwYXNzd29yZCI6IlNhaGl0aGFAMTQzIiwiZW1haWwiOiJ2YW5uZW1yZWRkaS5oQHVmbC5lZHUiLCJhdXRoIjoiZG1GdWJtVnRjbVZrWkdrdWFFQjFabXd1WldSMU9sTmhhR2wwYUdGQU1UUXoifX19
+          data: eyJhdXRocyI6eyJodHRwczovL3lhc2hhcml0aGExMjMuamZyb2cuaW8iOnsidXNlcm5hbWUiOiJ2YW5uZW1yZWRkaS5oQHVmbC5lZHUiLCJwYXNzd29yZCI6IlNhaGl0aGFAMTQzIiwiZW1haWwiOiJ2YW5uZW1yZWRkaS5oQHVmbC5lZHUiLCJhdXRoIjoiZG1GdWJtVnRjbVZrWkdrdWFFQjFabXd1WldSMU9sTmhhR2wwYUdGQU1UUXoifX19
 
 
