@@ -123,7 +123,7 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   
   Go to the actions in the github and click on cloud deployment. Now run the workflow as shown below.
   
-  Screenshot 1
+  ![cloud_deploy](https://github.com/yash1th25/scratchpay/assets/135289833/73ff72fe-ab39-4f7c-a3c8-9a41a17fcfa4)
   
   By executing this workflow project is excuted and image is build which is part of CI process. 
   In addition to that, pods and secrets are deployes in the kubernetes cluster.
