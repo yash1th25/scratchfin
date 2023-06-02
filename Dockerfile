@@ -4,7 +4,7 @@
 #RUN apt-get update && \
   #  apt-get install -y openjdk-17-jdk && \
   #   apt-get clean;
-    FROM --platform=linux/amd64 mcr.microsoft.com/openjdk/jdk:17-ubuntu
+    FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
  # Set the Java home environment variable
 # ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 
