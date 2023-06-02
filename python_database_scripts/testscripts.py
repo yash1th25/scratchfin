@@ -1,7 +1,7 @@
 import csv
 import requests
 
-with open('data.csv') as csv_file:
+with open('python_database_scripts/data.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     myobj = {'somekey': 'somevalue'}
