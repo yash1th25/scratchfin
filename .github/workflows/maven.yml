@@ -34,7 +34,7 @@ jobs:
     - name: build postgress image
       run: |
          docker pull postgres
-         docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 0.0.0.0:5432:5432 postgres
+         docker container run -it --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 0.0.0.0:5432:5432 postgres
          docker exec -it postgresdb psql -U postgres -f userdb.sql
     - name: build application image
       run: |
