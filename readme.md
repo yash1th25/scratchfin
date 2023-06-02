@@ -72,25 +72,32 @@ Create a local environment that can be used to verify the code. Please keep in m
 As per the requirement, I have to create a local environment for testing and it should work on all platforms. Below are the steps performed to achieve it.
 
 I wrote python scripts to load the csv into database, which makes the process of executing the test cases easy.
+As per the requirement, I have to create a local environment for testing and it should work on all platforms. Below are the steps performed to achieve it.
 
-## Manual creation
+
+
+## Manual creation of image
 1. To work my application on various platform, create a Docker container using below command. We can change the platform as per your requirement.
     Manual creation: 
     `docker build -t restapi . --platform=linux/arm64`
                   
-## Automation   
+## Automation for creating image
+
 2. We can also create the image by using the workflow `.github/workflows/maven.yml` by changing the envirnoment variable platform as per your architecture and OS
    ![application](https://github.com/yash1th25/scratchpay/assets/135289833/0c5d60c2-e87d-42dc-9330-665216cd4c4f)
    
 3. The tag of the image is printed in the console logs of workflow.
    ![tag](https://github.com/yash1th25/scratchpay/assets/135289833/e3a3d319-13f2-4859-ad43-49d250cca8e5)
  
-4. Now pull the image using docker pull yasharitha123.jfrog.io/docker/restapi:<image tag> and run it using below command
+4. Now pull the image using docker pull yasharitha123.jfrog.io/docker/restapi-local:<image tag> and run it using below command
   
    `docker  container run --name restapi  -e SQL_HOST=<give the ip address of the postgress> -e SQL_DB_NAME=userdb -e SQL_USERNAME=postgres -e SQL_PASSWORD=admin -d -p 8080:8080 yasharitha123.jfrog.io/docker/restapi:<image tag>`
+5. Pull the python image as well using  docker pull yasharitha123.jfrog.io/docker/python-local:<image tag> and run it using below command
+  `docker  container run --name pythonscripts  -e API_URL="http://<ip address of docker container>:8080/v1/users" —e CSV_URL= “python_database_scripts/data.csv” -d  yasharitha123.jfrog.io/docker/python-local:<image tag>`
   
-Note: IP address of the postgres is obtained by docker inspect <containerID>
 
+Note: IP address of the postgres is obtained by docker inspect <containerID>
+Hence, Developer/tester can simply build the python and application image by using workflow. They can easily run the container and test the application in ther respective local envirnoment.
 ## Task 3: Containerization and Orchestration
 
 This step is to test your understanding of containerization, automation and orchestration.
