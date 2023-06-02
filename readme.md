@@ -117,15 +117,18 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
      `kubectl create -f secretdb.yaml -n <namespace>`
      
   3. Once after creating the image go to the kubernetes/helm folder, and change the image name in the values.yaml
+     <img width="659" alt="imagename" src="https://github.com/yash1th25/scratchpay/assets/135289833/4abd0843-4284-4879-9cc0-09144514155b">
+  
   4. Deploy helm charts using below commands
      
      `helm install helm kubernetes/helm -n <namespace> --set imagename=<image_name>`
      
   5. Execute the database scripts by executing below commands
      `kubectl  cp python_database_scripts/userdb.sql  $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//"):/ -n <namespace>`
-           `kubectl  exec  -it $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//") bash -n <namespace>  -- /bin/bash -c "psql -U postgres --file userdb.sql`
-  6. Now run python scripts by replacing the value of API_URL and CSV_URL  using below command
-      API_URL=<restapi-svc ipaddress:8080/users> CSV_URL=<path of csv file >python python_database_scripts/testscripts.py 
+     `kubectl  exec  -it $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//") bash -n <namespace>  -- /bin/bash -c "psql -U postgres --file userdb.sql`
+  
+  6. Now run python scripts by replacing the value of API_URL and CSV_URL using below command
+     `API_URL=<restapi-svc ipaddress:8080/users> CSV_URL=<path of csv file> python python_database_scripts/testscripts.py`
   
  #### Instead of deploying manually, I created a workflow to excute the above tasks.
   
