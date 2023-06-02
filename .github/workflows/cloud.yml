@@ -63,7 +63,7 @@ jobs:
         
       - name:  create helm chart
         run: |
-          helm package src/helm
+          helm package kubernetes/helm
           helm install helm kubernetes/helm -n ${{env.namespace}} --set imagename=yasharitha123.jfrog.io/docker/restapi:${{ github.sha }}
  
 
