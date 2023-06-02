@@ -136,24 +136,32 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   
  #### Instead of deploying manually, I created a workflow to excute the above tasks.
   
-  In the below screenshot, make sure to update the credentials or secrets as per your environment. Since I used the Azure for my deployment I have provided the required clientkey,   clientsecret, tenantId, etc, and same for the JFrog repository (docker_username, docker_registry, docker_password).
+  1. In the below screenshot, make sure to update the credentials or secrets as per your environment. Since I used the Azure for my deployment I have provided the required  clientkey, clientsecret, tenantId, etc, and same for the JFrog repository (docker_username, docker_registry, docker_password).
   
   <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
   
-  Navigate to .github.workflows/cloud.yaml and change envirnoment variables if require 
+  2. Navigate to .github.workflows/cloud.yaml and change envirnoment variables if require 
   
   ![cloud_env](https://github.com/yash1th25/scratchpay/assets/135289833/9f13b437-fb04-4694-af49-7cb6a77da897)
   
-  Go to the actions in the github and click on cloud deployment. Now run the workflow as shown below.
+  3. Go to the actions in the github and click on cloud deployment. Now run the workflow as shown below.
   
   ![cloud_deploy](https://github.com/yash1th25/scratchpay/assets/135289833/73ff72fe-ab39-4f7c-a3c8-9a41a17fcfa4)
   
-  By executing this workflow project is excuted and image is build which is part of CI process. 
-  In addition to that, pods and secrets are deployes in the kubernetes cluster.
+  4. By executing this workflow project is excuted and image is build which is part of CI process. In addition to that, pods and secrets are deployes in the kubernetes cluster.
   
-  Now click on databasecreationscripts, which creates the schema into the postgress database.
+  5. Now click on databasecreationscripts, which creates the schema into the postgress database.
   ![databasescripts](https://github.com/yash1th25/scratchpay/assets/135289833/a7dfe91b-8800-468e-8196-d803861e8e8b)
   
+  6. In the test.yaml workflow file, please update the environment variables of API_URL as per the service IP of restapi. To get the IP of the restapisvc run the below command as shown in the screenshots.
+  
+  ![servicerestapi](https://github.com/yash1th25/scratchpay/assets/135289833/6c53460a-1f94-46a7-9ae3-9cc733b397b2)
+  
+  <img width="538" alt="testenv" src="https://github.com/yash1th25/scratchpay/assets/135289833/c311f59f-6ec0-4e7d-994b-a1d3191d25e6">
+  
+
+### Note: I used Workflow_dispatch method to trigger the workflow files for testing. If I use push trigger the workflows will run on every commit and which takes lot of time for me to test.
+     
   
   
      
