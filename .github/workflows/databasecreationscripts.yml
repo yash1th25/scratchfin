@@ -25,5 +25,5 @@ jobs:
         uses: azure/setup-kubectl@v3    
       - name: copy sql file to helm chart
         run: |
-           kubectl  cp userdb.sql  $(kubectl get pods -o=name | grep postgresdb | sed "s/^.\{4\}//"):/ -n scratchpay
-           kubectl exec -it $(kubectl get pods -o=name | grep postgresdb | sed "s/^.\{4\}//") -- /bin/bash -c "psql -U postgres --file userdb.sql" -n scratchpay
+           kubectl  cp userdb.sql  $(kubectl get pods -o=name | grep postgresdb | sed "s/^.\{4\}// -n scratchpay"):/ -n scratchpay
+           kubectl exec -it $(kubectl get pods -o=name | grep postgresdb | sed "s/^.\{4\}// -n scratchpay") -- /bin/bash -c "psql -U postgres --file userdb.sql" -n scratchpay
