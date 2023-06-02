@@ -73,4 +73,7 @@ This step is to test your understanding of containerization, automation and orch
 
 Please containerize your application and create the required manifests/configuration to deploy your application to a Kubernetes cluster. Please use best practices when setting this up (treat it as if it were going into production). Part of the process should include the automation of loading the data into the storage that you have chosen.
 
-_NB:_ Scratchpay is a Fintech company, so while we believe in innovation, this should not be at the cost of compromising on security.
+## Process
+* Used docker file to containerize the application
+* 
+
