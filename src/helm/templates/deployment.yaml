@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: restapi
-          image: yasharitha123.jfrog.io/docker/restapimicro1:0.0.8-SNAPSHOT
+          image: {{ .Values.imagename }}
           ports:
             - name: http
               containerPort: 8080
