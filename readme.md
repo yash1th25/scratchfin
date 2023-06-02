@@ -25,6 +25,7 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
   2. Run the postgres container as below 
      
      ```docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 5432:5432 postgres```
+     
      --name - Assign a name to the container
      -e - to set the environmental variables
      -d - Run container in background and print container ID
@@ -47,6 +48,7 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
   ```java -jar ./target/restapi-0.0.1-SNAPSHOT.jar```
 
 * To hit the below APIs, you can use something like postman to test.
+
   POST - http://localhost:8080/v1/users
   
   ![alt text] (https://github.com/yash1th25/scratchpay/blob/main/images/postman.jpeg?raw=true)
