@@ -119,7 +119,8 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
   
   Navigate to .github.workflows/cloud.yaml and change envirnoment variables if require 
-   screeshot2
+  
+  ![cloud_env](https://github.com/yash1th25/scratchpay/assets/135289833/9f13b437-fb04-4694-af49-7cb6a77da897)
   
   Go to the actions in the github and click on cloud deployment. Now run the workflow as shown below.
   
