@@ -76,6 +76,7 @@ I wrote python scripts to load the csv into database, which makes the process of
 To work my application on various platform, create a Docker container my using the workflow `.github/workflows/maven.yml`
 
 
+
 ## Task 3: Containerization and Orchestration
 
 This step is to test your understanding of containerization, automation and orchestration.
@@ -83,6 +84,36 @@ This step is to test your understanding of containerization, automation and orch
 Please containerize your application and create the required manifests/configuration to deploy your application to a Kubernetes cluster. Please use best practices when setting this up (treat it as if it were going into production). Part of the process should include the automation of loading the data into the storage that you have chosen.
 
 ### Process
-* Used docker file to containerize the application
-* 
+* Created dockerfile to build the image and pushed image into the jFrog repository, and deployed it into the AKS cluster using helm charts
+* Created helm charts and related deployment files which includes deployment files for running the application and postgres database. Also, created the respective service files under helm charts.
+* To fetch the image from the Jfrog repository, I added a secret.yaml which is under Kubernetes folder.
+* To add the database properties, I created a configmap which has the hostname and database name. (hostname is nothing but postgres service name)
+* In kubernetes folder, there is a secretdb.yaml file which is used to override the database credentials both username and password, so that we are not sharing the sensitive information directly in the deployment files.
+####Below are the commands to manually deploy the application in AKS
+Prerequisties: Make sure Azure kubernetes cluster is installed
+  1. To login to the Cluster
 
+     `az aks get-credentials --resource-group <resource-group-name> --name <aks-cluster-name>`
+     
+  2. Go to kuberbetes directory, deploy secrets and configmaps
+     
+     `kubectl create -f secret.yaml -n <namespace>` 
+     
+     `kubectl create -f secretdb.yaml -n <namespace>`
+     
+  3. Once after creating the image go to the kubernetes/helm folder, and change the image name in the values.yaml
+  4. Deploy helm charts using below commands
+     
+     `helm install helm kubernetes/helm -n <namespace> --set imagename=<image_name>`
+     
+  5. Execute the database scripts by executing below commands
+     `kubectl  cp python_database_scripts/userdb.sql  $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//"):/ -n <namespace>`
+           `kubectl  exec  -it $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//") bash -n <namespace>  -- /bin/bash -c "psql -U postgres --file userdb.sql`
+  6. Now run python scripts by replacing the value of API_URL and CSV_URL  using below command
+      API_URL=<restapi-svc ipaddress:8080/users> CSV_URL=<path of csv file >python python_database_scripts/testscripts.py 
+  
+ ####Instead of deploying manually, I created a workflow to excute the above tasks.
+  
+  <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
+  
+     
