@@ -116,6 +116,8 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   
   In the below screenshot, make sure to update the credentials or secrets as per your environment. Since I used the Azure for my deployment I have provided the required clientkey,   clientsecret, tenantId, etc, and same for the JFrog repository (docker_username, docker_registry, docker_password).
   
+  <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
+  
   Navigate to .github.workflows/cloud.yaml and change envirnoment variables if require 
    screeshot2
   
@@ -129,10 +131,5 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   Now click on databasecreationscripts, which creates the schema into the postgress database.
   
   
- 
-  
- 
-  
-  <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
   
      
