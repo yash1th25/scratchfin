@@ -1,4 +1,4 @@
-name: CI for building image and push to Repo
+name: Buliding application and python image
 
 on: [push]
 env:
