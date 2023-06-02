@@ -112,7 +112,7 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   6. Now run python scripts by replacing the value of API_URL and CSV_URL  using below command
       API_URL=<restapi-svc ipaddress:8080/users> CSV_URL=<path of csv file >python python_database_scripts/testscripts.py 
   
- ####Instead of deploying manually, I created a workflow to excute the above tasks.
+ #### Instead of deploying manually, I created a workflow to excute the above tasks.
   
   <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
   
