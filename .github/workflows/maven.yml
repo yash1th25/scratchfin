@@ -8,8 +8,7 @@
 
 name: CI for building image and push to Repo
 
-on: 
- [workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   build:
