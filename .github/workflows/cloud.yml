@@ -53,9 +53,9 @@ jobs:
         
       - name: create secret
         run: |
-         kubectl create -f src/secret.yaml -n ${{env.namespace}}
-         kubectl create -f src/secretdb.yaml -n ${{env.namespace}}
-         kubectl create -f src/configmap.yaml -n ${{env.namespace}}
+         kubectl create -f kubernetes/secret.yaml -n ${{env.namespace}}
+         kubectl create -f kubernetes/secretdb.yaml -n ${{env.namespace}}
+         kubectl create -f kubernetes/configmap.yaml -n ${{env.namespace}}
      
       - name: Helm tool installer
         id: install-helm
@@ -64,7 +64,7 @@ jobs:
       - name:  create helm chart
         run: |
           helm package src/helm
-          helm install helm src/helm -n ${{env.namespace}} --set imagename=yasharitha123.jfrog.io/docker/restapi:${{ github.sha }}
+          helm install helm kubernetes/helm -n ${{env.namespace}} --set imagename=yasharitha123.jfrog.io/docker/restapi:${{ github.sha }}
  
 
      
