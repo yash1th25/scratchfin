@@ -55,7 +55,7 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
 
   POST - http://localhost:8080/v1/users (To create the users)
   
-  ![alt text] (https://github.com/yash1th25/scratchpay/blob/main/images/postman.jpeg)
+  ![postman](https://github.com/yash1th25/scratchpay/assets/135289833/90f6ef39-5048-4047-9498-bc86541e70b5)
   
   GET - http://localhost:8080/v1/users (To fetch all user details)
   
