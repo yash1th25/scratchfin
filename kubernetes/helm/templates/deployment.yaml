@@ -40,7 +40,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: db-config
-                  key: dbname
+                  key: userdb
             - name: SQL_HOST
               value: postgresdb-svc
       imagePullSecrets:
