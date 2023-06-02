@@ -5,7 +5,7 @@ with open('data.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     myobj = {'somekey': 'somevalue'}
-    url = "http://20.102.29.77:8080/v1/users"
+    url = "http://20.246.169.184:8080/v1/users"
     for row in csv_reader:
         if line_count == 0:
             line_count += 1
