@@ -44,12 +44,7 @@ jobs:
         id: install-kubectl
         uses: azure/setup-kubectl@v3
         
-      - name: Create secret in Kubernetes cluster
-        uses: azure/k8s-create-secret@v2
-        with:
-          namespace: 'scratchpay'
-          secret-type: 'generic'
-          secret-name: azure-storage
-          data: .dockerconfigjson:eyJhdXRocyI6eyJodHRwczovL3lhc2hhcml0aGExMjMuamZyb2cuaW8iOnsidXNlcm5hbWUiOiJ2YW5uZW1yZWRkaS5oQHVmbC5lZHUiLCJwYXNzd29yZCI6IlNhaGl0aGFAMTQzIiwiZW1haWwiOiJ2YW5uZW1yZWRkaS5oQHVmbC5lZHUiLCJhdXRoIjoiZG1GdWJtVnRjbVZrWkdrdWFFQjFabXd1WldSMU9sTmhhR2wwYUdGQU1UUXoifX19
+      - name: create secret
+        run: kubectl create -f src/secret.yaml
 
-
+     
