@@ -6,9 +6,9 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: CI for building image
+name: CI for building image and push to Repo
 
-on:
+on: 
   push:
     branches: [ "main" ]
   pull_request:
