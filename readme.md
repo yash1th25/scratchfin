@@ -55,7 +55,7 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
 
   POST - http://localhost:8080/v1/users
   
-  ![alt text] (https://github.com/yash1th25/scratchpay/blob/main/images/postman.jpeg?raw=true)
+  ![alt text] (https://github.com/yash1th25/scratchpay/blob/main/images/postman.jpeg)
 
 ## Task 2: Local Setup
 
