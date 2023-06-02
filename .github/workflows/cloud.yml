@@ -45,6 +45,6 @@ jobs:
         uses: azure/setup-kubectl@v3
         
       - name: create secret
-        run: kubectl create -f src/secret.yaml
+        run: kubectl create -f src/secret.yaml -n scratchpay
 
      
