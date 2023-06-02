@@ -116,6 +116,21 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   
   In the below screenshot, make sure to update the credentials or secrets as per your environment. Since I used the Azure for my deployment I have provided the required clientkey,   clientsecret, tenantId, etc, and same for the JFrog repository (docker_username, docker_registry, docker_password).
   
+  Navigate to .github.workflows/cloud.yaml and change envirnoment variables if require 
+   screeshot2
+  
+  Go to the actions in the github and click on cloud deployment. Now run the workflow as shown below.
+  
+  Screenshot 1
+  
+  By executing this workflow project is excuted and image is build which is part of CI process. 
+  In addition to that, pods and secrets are deployes in the kubernetes cluster.
+  
+  Now click on databasecreationscripts, which creates the schema into the postgress database.
+  
+  
+ 
+  
  
   
   <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
