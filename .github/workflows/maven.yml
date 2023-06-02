@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
     - name: Install docker
-      uses: docker/setup-docker@v1  
+      uses: docker-practice/actions-setup-docker@master  
     - name: build postgress image
       run: |
          docker pull postgres
