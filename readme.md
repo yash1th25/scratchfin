@@ -26,10 +26,14 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
      
      ```docker container run --name postgresdb -e POSTGRES_PASSWORD=admin -d -p 5432:5432 postgres```
      
-     --name - Assign a name to the container \n
-     -e - to set the environmental variables \n
-     -d - Run container in background and print container ID \n
-     -p - Publish a container’s port(s) to the host \n
+     --name - Assign a name to the container
+     
+     -e - to set the environmental variables
+     
+     -d - Run container in background and print container ID
+     
+     -p - Publish a container’s port(s) to the host
+     
    
   3. Go to the python_database_scripts folder and run the below command to copy the userdb.sql file to the postgres container
      
