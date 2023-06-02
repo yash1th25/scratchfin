@@ -114,6 +114,10 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   
  #### Instead of deploying manually, I created a workflow to excute the above tasks.
   
+  In the below screenshot, make sure to update the credentials or secrets as per your environment. Since I used the Azure for my deployment I have provided the required clientkey,   clientsecret, tenantId, etc, and same for the JFrog repository (docker_username, docker_registry, docker_password).
+  
+ 
+  
   <img width="1148" alt="githubsecret" src="https://github.com/yash1th25/scratchpay/assets/135289833/576a866d-2aa8-4274-97a1-622d75f1f4d8">
   
      
