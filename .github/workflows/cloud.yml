@@ -4,6 +4,9 @@ on: workflow_dispatch
     
 env:
   namespace: test
+  resource-group: practice
+  cluster-name: PRACTICE
+  
   
 jobs:
   build:
@@ -41,8 +44,8 @@ jobs:
         id: set-context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: practice 
-          cluster-name: PRACTICE
+          resource-group: ${{env.resource-group}} 
+          cluster-name: ${{env.cluster-name}}
             
       - name: Setup kubectl
         id: install-kubectl
