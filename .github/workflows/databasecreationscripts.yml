@@ -1,1 +1,28 @@
+name: Java CI
 
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Az CLI login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+      - name: Set AKS context
+        id: set-context
+        uses: azure/aks-set-context@v3
+        with:
+          resource-group: practice 
+          cluster-name: PRACTICE
+            
+      - name: Setup kubectl
+        id: install-kubectl
+        uses: azure/setup-kubectl@v3    
+      - name: copy sql file to helm chart
+        run: |
+           kubectl  cp userdb.sql  $(kubectl get pods -o=name | grep postgresdb | sed "s/^.\{4\}//"):/
+           kubectl exec -it $(kubectl get pods -o=name | grep postgresdb | sed "s/^.\{4\}//") -- /bin/bash -c "psql -U postgres --file userdb.sql"
