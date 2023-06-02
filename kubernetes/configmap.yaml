@@ -1,7 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: db-config 
-data::
-  host: postgresdb-svc
-  dbname: userdb
+  name: example-configmap
+data:
+  app.properties: |
+    host: postgresdb-svc
+    dbname: userdb
+
+  
+
