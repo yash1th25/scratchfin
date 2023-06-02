@@ -80,7 +80,8 @@ I wrote python scripts to load the csv into database, which makes the process of
                   
 ## Automation   
 2. We can also create the image by using the workflow `.github/workflows/maven.yml` by changing the envirnoment variable platform as per your architecture and OS
- 
+   ![application](https://github.com/yash1th25/scratchpay/assets/135289833/0c5d60c2-e87d-42dc-9330-665216cd4c4f)
+   
 3. The tag of the image is printed in the console logs of workflow.
    ![tag](https://github.com/yash1th25/scratchpay/assets/135289833/e3a3d319-13f2-4859-ad43-49d250cca8e5)
  
