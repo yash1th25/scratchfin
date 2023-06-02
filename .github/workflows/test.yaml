@@ -2,7 +2,7 @@ name: Python CD
 
 on: [workflow_dispatch]
 env:
-  DATABASE_URL: "http://74.64.123.44:8080/v1/users"
+  DATABASE_URL: "http://20.246.157.172:8080/v1/users"
   CSV_URL: "python_database_scripts/data.csv"
 jobs:
   build:
