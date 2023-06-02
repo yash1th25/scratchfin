@@ -1,4 +1,4 @@
-name: Java CI
+name: databasescripts
 
 on: workflow_dispatch
 
