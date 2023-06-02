@@ -78,7 +78,9 @@ As per the requirement, I have to create a local environment for testing and it 
 
 #### Manual process for creating image
 1. To work my application on various platform, create a Docker container using below command. We can change the platform as per your requirement.
+    
     Manual creation: 
+    
     `docker build -t restapi . --platform=linux/arm64`
                   
 #### Automation for creating image
@@ -92,12 +94,13 @@ As per the requirement, I have to create a local environment for testing and it 
 4. Now pull the image using `docker pull yasharitha123.jfrog.io/docker/restapi-local:<image tag>` and run it using below command
   
    `docker  container run --name restapi  -e SQL_HOST=<give the ip address of the postgress> -e SQL_DB_NAME=userdb -e SQL_USERNAME=postgres -e SQL_PASSWORD=admin -d -p 8080:8080 yasharitha123.jfrog.io/docker/restapi:<image tag>`
-5. Pull the python image as well using  docker pull yasharitha123.jfrog.io/docker/python-local:<image tag> and run it using below command
+5. Pull the python image as well using  `docker pull yasharitha123.jfrog.io/docker/python-local:<image tag>` and run it using below command
   `docker  container run --name pythonscripts  -e API_URL="http://<ip address of docker container>:8080/v1/users" —e CSV_URL= “python_database_scripts/data.csv” -d  yasharitha123.jfrog.io/docker/python-local:<image tag>`
   
 
 Note: IP address of the postgres is obtained by docker inspect <containerID>
 Hence, Developer/tester can simply build the python and application image by using workflow. They can easily run the container and test the application in ther respective local envirnoment.
+  
 ## Task 3: Containerization and Orchestration
 
 This step is to test your understanding of containerization, automation and orchestration.
@@ -131,10 +134,13 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
      `helm install helm kubernetes/helm -n <namespace> --set imagename=<image_name>`
      
   5. Execute the database scripts by executing below commands
+  
      `kubectl  cp python_database_scripts/userdb.sql  $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//"):/ -n <namespace>`
+  
      `kubectl  exec  -it $(kubectl get pods -n <namespace> -o=name | grep postgres | sed "s/^.\{4\}//") bash -n <namespace>  -- /bin/bash -c "psql -U postgres --file userdb.sql`
   
   6. Now run python scripts by replacing the value of API_URL and CSV_URL using below command
+  
      `API_URL=<restapi-svc ipaddress:8080/users> CSV_URL=<path of csv file> python python_database_scripts/testscripts.py`
   
  #### Instead of deploying manually, I created a workflow to excute the above tasks.
@@ -154,6 +160,7 @@ Prerequisties: Make sure Azure kubernetes cluster is installed
   4. By executing this workflow project is excuted and image is build which is part of CI process. In addition to that, pods and secrets are deployes in the kubernetes cluster.
   
   5. Now click on databasecreationscripts, which creates the schema into the postgress database.
+  
      ![databasescripts](https://github.com/yash1th25/scratchpay/assets/135289833/a7dfe91b-8800-468e-8196-d803861e8e8b)
   
   6. In the test.yaml workflow file, please update the environment variables of API_URL as per the service IP of restapi. To get the IP of the restapisvc run the below command as shown in the screenshots.
