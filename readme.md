@@ -96,7 +96,8 @@ As per the requirement, I have to create a local environment for testing and it 
    `docker  container run --name restapi  -e SQL_HOST=<give the ip address of the postgress> -e SQL_DB_NAME=userdb -e SQL_USERNAME=postgres -e SQL_PASSWORD=admin -d -p 8080:8080 yasharitha123.jfrog.io/docker/restapi:<image tag>`
 5. Pull the python image as well using  `docker pull yasharitha123.jfrog.io/docker/python-local:<image tag>` and run it using below command
   `docker  container run --name pythonscripts  -e API_URL="http://<ip address of docker container>:8080/v1/users" —e CSV_URL= “python_database_scripts/data.csv” -d  yasharitha123.jfrog.io/docker/python-local:<image tag>`
-  
+
+6. Once after successfully running the python docker container, the response code 200 i sprinted on console
 
 Note: IP address of the postgres is obtained by docker inspect <containerID>
 Hence, Developer/tester can simply build the python and application image by using workflow. They can easily run the container and test the application in ther respective local envirnoment.
