@@ -7,7 +7,6 @@ csvurl = os.environ.get('CSV_URL', 'http://74.64.123.44:8080/v1/users')
 with open(database_url) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
-    myobj = {'somekey': 'somevalue'}
     url = csvurl
     for row in csv_reader:
         if line_count == 0:
