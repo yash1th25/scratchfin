@@ -34,7 +34,17 @@ jobs:
           push: true
           tags: yasharitha123.jfrog.io/docker/restapi-local:${{ github.sha }} 
           platforms: linux/arm64
+
+    - name: Build and push the python scripts Docker image
+      uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+      with:
+          context: .
+          file: ./python_database_scripts/Dockerfile
+          push: true
+          tags: yasharitha123.jfrog.io/docker/python-local:${{ github.sha }} 
+          platforms: linux/arm64
     - name: print docker image name
       run: |
-         echo "${{env.image}}:${{ github.sha }}"
+         echo "restapi-local:${{ github.sha }}"  
+         echo "python-local:${{ github.sha }}"
 
