@@ -53,9 +53,13 @@ You will find a [swagger spec](https://gitlab.scratchpay.com/-/snippets/42/raw/m
 
 * To hit the below APIs, you can use something like postman to test.
 
-  POST - http://localhost:8080/v1/users
+  POST - http://localhost:8080/v1/users (To create the users)
   
   ![alt text] (https://github.com/yash1th25/scratchpay/blob/main/images/postman.jpeg)
+  
+  GET - http://localhost:8080/v1/users (To fetch all user details)
+  
+  GET - http://localhost:8080/v1/users/{id} (To fetch particular user)
 
 ## Task 2: Local Setup
 
