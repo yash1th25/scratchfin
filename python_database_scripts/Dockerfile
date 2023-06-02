@@ -6,7 +6,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY testscripts.py testscripts.py
-COPY data.csv data.csv
+COPY python_database_scripts/data.csv data.csv
 
 EXPOSE 5000
 CMD ["python3", "testscripts.py"]
