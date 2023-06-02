@@ -42,10 +42,7 @@ spec:
                   name: db-config
                   key: dbname
             - name: SQL_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: db-config
-                  key: host
+              value: postgresdb-svc
       imagePullSecrets:
         - name: regcred
 
